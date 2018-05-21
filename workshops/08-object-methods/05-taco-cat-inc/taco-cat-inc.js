@@ -23,3 +23,37 @@ let tacoCatInc = {
 };
 
 // YOUR CODE BELOW
+tacoCatInc.currentInventory = function() {
+  let sum = 0;
+
+  for (let key in this) {
+    if (typeof this[key] !== 'function') {
+      let productType = this[key];
+      for (let product in productType) {
+        if (typeof productType[product] !== 'function'){
+          let productInfo = productType[product];
+          sum += (productInfo.cost * productInfo.quantity);
+        }
+      }
+    }
+  }
+
+  return sum;
+}
+
+tacoCatInc.sale = function(order) {
+  let price = 0;
+
+  for (let key in order) {
+    if (this.hasOwnProperty(key)) {
+      let 
+        productType = key,
+        product = order[key];
+
+      price += this[productType][product].cost;
+      this[productType][product].quantity -= 1;
+      this.cash += this[productType][product].cost;
+    }
+  }
+  return price;
+}
