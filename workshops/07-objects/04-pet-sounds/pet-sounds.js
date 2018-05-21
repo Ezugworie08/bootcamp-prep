@@ -38,3 +38,20 @@ let animalNoises = [
 ];
 
 // YOUR CODE BELOW
+
+function capitalize(word) {
+  return word[0].toUpperCase() + word.slice(1,).toLowerCase();
+}
+
+function petSounds(animal, country) {
+  const len = animalNoises.length;
+  let sentence = '';
+  
+  for (let i = 0; i < len; i++) {
+    petDetails = animalNoises[i];
+    if (animal in petDetails) {
+      sentence += capitalize(animal) + 's in ' + capitalize(country) + ' say ' + petDetails[animal][country];
+    }
+  }
+  return sentence;  
+}
