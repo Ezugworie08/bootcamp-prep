@@ -19,7 +19,7 @@ const ticTacToe = {
             [null, null, null],
             [null, null, null],
             [null, null, null]
-        ]
+        ];
         return this.board;
     }
 };
