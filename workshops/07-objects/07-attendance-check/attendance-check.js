@@ -38,3 +38,24 @@ let classRoom = [
 ];
 
 // YOUR CODE BELOW
+
+function attendanceCheck(weekDay) {
+    let studentsInAttendance = [];
+    const len = classRoom.length;
+
+    for (let i = 0; i < len; i++) {
+        student = classRoom[i];
+        for (let person in student) {
+            let weekLen = student[person].length;
+           for (let j = 0; j < weekLen; j++) {
+               let inClass = student[person][j][weekDay]
+               if (inClass) {
+                   studentsInAttendance.push(person)
+               }
+           }
+
+        }
+
+    }
+    return studentsInAttendance;
+}
